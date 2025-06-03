@@ -1,0 +1,6 @@
+            Passos executados para correção do programa
+ ---------------------------------------------------------------------------------------
+1. Download Junit 5.8.1
+2. Utilizando pilar da POO encapsulamento na classe Node.java (tornando atributos privados, add getters, setters, hashcode, toString e equals)
+3. Modificando a sintaxe da classe "DoublyLinkedList.java" para aceitar o uso do emcapsulamento
+4. 
