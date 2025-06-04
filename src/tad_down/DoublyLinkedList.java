@@ -1,5 +1,4 @@
 package tad_down;
-
 import tad_down.Node;
 
 /**
@@ -16,24 +15,24 @@ public class DoublyLinkedList {
     // Inserção em ordem crescente
     public void insertOrdered(int data) {
         Node newNode = new Node(data);
-        if (head == null || data < head.getData()) {
-            newNode.setNext(head);
+        if (head == null || data < head.data) {
+            newNode.next = head;
             if (head != null) {
-                head.setPrev(newNode);
+                head.prev = newNode;
             }
             head = newNode;
         } else {
             Node current = head;
-            while (current.getNext()!= null && current.getNext().getData() >= current.getData()) {
-                current = current.getNext();
+            while (current.next != null && current.next.data <= data) {   //Bastou substituir current.next.data >= data por current.next.data <= data;
+                current = current.next;
             }
 
-            newNode.setNext(current.getNext());
-            if (current.getNext() != null) {
-                current.getNext().setPrev(newNode);
+            newNode.next = current.next;
+            if (current.next != null) {
+                current.next.prev = newNode;
             }
-            current.setNext(newNode);
-            newNode.setPrev(current);
+            current.next = newNode;
+            newNode.prev = current;
         }
     }
 
@@ -42,8 +41,8 @@ public class DoublyLinkedList {
         Node current = head;
         output += "Lista (frente): ";
         while (current != null) {
-            output += (current.getData() + " ");
-            current = current.getNext();
+            output += (current.data + " ");
+            current = current.next;
         }
         return output + "\n";
     }
@@ -51,13 +50,14 @@ public class DoublyLinkedList {
     public String printBackward() {
         Node current = head;
         String output = "Lista (trás): ";
-        while (current != null) {
-            current = current.getNext();
+        while (current != null && current.next != null) { //precisamos adicionar && current.next != null para impedir que o utlimo nó seja nulo
+            current = current.next;
         }
 
         while (current != null) {
-            output += (current.getData() + " ");
-            current = current.getPrev();
+            output += (current.data + " ");
+            current = current.prev;
+
         }
         return output + "\n";
     }
@@ -65,20 +65,20 @@ public class DoublyLinkedList {
     public void remove(int data) {
         Node current = head;
 
-        while (current != null && current.getData() != data) {
-            current = current.getNext();
+        while (current != null && current.data != data) {
+            current = current.next;
         }
 
         if (current == null) return;
 
-        if (current.getPrev() != null) {
-            current.getPrev().setNext(current.getNext());
+        if (current.prev != null) {
+            current.prev.next = current.next;
         } else {
-            head = head.getNext();
+            head = head.next;
         }
 
-        if (current.getNext() != null) {
-            current.getNext().setPrev(current.getPrev());
+        if (current.next != null) {
+            current.next.prev = current.prev;
         }
 
     }

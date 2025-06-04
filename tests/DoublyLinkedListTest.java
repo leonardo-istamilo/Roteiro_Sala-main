@@ -26,12 +26,14 @@ public class DoublyLinkedListTest {
         assertEquals("30", list.head.getNext().getNext().toString());
     }
 
+
     @Test
     public void test_printForward_when() {
         list.insertOrdered(10);
+        assertEquals("10", list.head.getPrev().toString());
         list.insertOrdered(20);
         list.insertOrdered(30);
         list.insertOrdered(40);
-        list.printForward();
+        list.printForward();s
     }
 }
