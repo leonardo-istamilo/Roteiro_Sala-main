@@ -29,7 +29,7 @@ bin/
 .DS_Store
 ### FILES ###
 # Ignorar arquivo com nome muito longo gerado por compilação
-src/production/Roteiro_Sala-main/production/Roteiro_Sala-main/production/Roteiro_Sala-main/production/Roteiro_Sala-main/production/Roteiro_Sala-main/production/Roteiro_Sala-main/DoublyLinkedListTest (Emcapsulamento).txt
+#src/production/Roteiro_Sala-main/production/Roteiro_Sala-main/production/Roteiro_Sala-main/production/Roteiro_Sala-main/production/Roteiro_Sala-main/production/Roteiro_Sala-main/DoublyLinkedListTest (Emcapsulamento).txt
 
 # Ignorar toda a pasta production (opcional, mas recomendado)
 production/
