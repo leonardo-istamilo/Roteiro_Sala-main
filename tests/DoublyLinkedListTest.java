@@ -14,16 +14,16 @@ public class DoublyLinkedListTest {
     }
 
     @Test
-    public void test_inserOrdered() {
+    public void test_insertOrdered() {
         list.insertOrdered(10);
-        assertEquals("10", list.head.toString());
+        assertEquals("10", list.getHead().toString());
         list.insertOrdered(20);
-        assertEquals("10", list.head.toString());
-        assertEquals("20", list.head.getNext().toString());
+        assertEquals("10", list.getHead().toString());
+        assertEquals("20", list.getHead().getNext().toString());
         list.insertOrdered(30);
-        assertEquals("10", list.head.toString());
-        assertEquals("20", list.head.getNext().toString());
-        assertEquals("30", list.head.getNext().getNext().toString());
+        assertEquals("10", list.getHead().toString());
+        assertEquals("20", list.getHead().getNext().toString());
+        assertEquals("30", list.getHead().getNext().getNext().toString());
     }
 
 
@@ -62,5 +62,39 @@ public class DoublyLinkedListTest {
 
         list.remove(40);
         assertEquals("Lista (frente): 10 20 30 \n", list.printForward()); // remoção do ultimo elemento
+    }
+
+    @Test
+    public void test_remove_singleElement() {
+        list.insertOrdered(10);
+        list.remove(10);
+        assertEquals("Lista (frente): \n", list.printForward());
+        assertEquals("Lista (trás): \n", list.printBackward());
+    }
+
+    @Test
+    public void test_remove_nonExistentElement() {
+        list.insertOrdered(10);
+        list.insertOrdered(20);
+        list.insertOrdered(30);
+        list.remove(100); // 100 não existe
+        assertEquals("Lista (frente): 10 20 30 \n", list.printForward());
+        assertEquals("Lista (trás): 30 20 10 \n", list.printBackward());
+    }
+
+    @Test
+    public void test_print_onEmptyList() {
+        assertEquals("Lista (frente): \n", list.printForward());
+        assertEquals("Lista (trás): \n", list.printBackward());
+    }
+
+    @Test
+    public void test_insertOrdered_duplicates() {
+        list.insertOrdered(20);
+        list.insertOrdered(10);
+        list.insertOrdered(20);
+        list.insertOrdered(10);
+        assertEquals("Lista (frente): 10 10 20 20 \n", list.printForward());
+        assertEquals("Lista (trás): 20 20 10 10 \n", list.printBackward());
     }
 }

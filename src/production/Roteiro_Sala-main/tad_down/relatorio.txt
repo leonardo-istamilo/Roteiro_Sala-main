@@ -19,5 +19,16 @@ Para relatorio:
 2.5. Foram realizados testes unitários dos métodos printForward() e printBackward();
 
 3.0. Testando método remove():
-3.1 Segundo o teste unitário, o método não remove o primeiro elemento
+3.1. Segundo o teste unitário, o método não remove o primeiro elemento.
+3.2. Para resolver // Substituimos "this.prev = this" por "this.prev = null"
+
+OBS.: Com o passo anterior, anulamos o passo 2.3
+
+3. Adicionamos teste unitários para:
+     - Remoção em lista com apenas 1 elemento
+     - Remoção de um elemento que não existe
+     - Impressão em lista vazia
+     - Inserção de elementos duplicados (dependendo do comportamento esperado)
+
+3.1.
 
