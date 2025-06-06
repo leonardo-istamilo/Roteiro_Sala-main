@@ -48,22 +48,30 @@ public class DoublyLinkedList {
     }
 
     public String printBackward() {
+        int count = 0;
         Node current = head;
         String output = "Lista (trás): ";
-        while (current != null && current.next != null) { //precisamos adicionar && current.next != null para impedir que o utlimo nó seja nulo
-            current = current.next;
+
+        // Adicionada condicional para lista vazia
+        if (current == null) {
+            return output + "\n"; // Lista vazia
         }
 
-        while (current != null) {
+        while (current.next != null) { //precisamos substituir "current != null" por "current.next != null" para impedir que o ultimo nó seja nulo
+            current = current.next;
+            count++;
+        }
+
+        for (int i = 0; i <= count; i++) {
             output += (current.data + " ");
             current = current.prev;
-
         }
         return output + "\n";
     }
 
     public void remove(int data) {
         Node current = head;
+
 
         while (current != null && current.data != data) {
             current = current.next;
@@ -75,6 +83,9 @@ public class DoublyLinkedList {
             current.prev.next = current.next;
         } else {
             head = head.next;
+            if (head != null) {
+                head.prev = null; // Add para limpar o prev do novo header, que deverá ser "esquecido".
+            }
         }
 
         if (current.next != null) {

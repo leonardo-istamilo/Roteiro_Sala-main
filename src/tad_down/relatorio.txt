@@ -13,6 +13,11 @@ Para relatorio:
 1.4. Bastou substituir current.next.data >= data por current.next.data <= data para resolver;
 1.5. Foi testado na main para conferir rapidamente e o resoltado esperado foi alcançando.
 2. Testando agora o método printBackward():
-2.1. Adicionamos "&& current.next != null" no primeiro while para impedir que o ultimo nó seja nulo, e, consequentemente, o segundo while não seja acessado, fazendo com o que os valores não sejam retornados a tela.
+2.1. precisamos substituir "current != null" por "current.next != null" no primeiro while para impedir que o ultimo nó seja nulo, e, consequentemente, o segundo while não seja acessado, fazendo com o que os valores não sejam retornados a tela.
 2.2. Percebe-mos um loop infinito e, ao debugar, nota-mos que o nó head está sendo chamado infinitas vezes
-2.2
+2.3.  Resolvemos adicionando um contador para descobrir o tamanho do array, no primeiro while, e substituimos o segundo while por um for que percorre o array do fim ao inicio.
+2.5. Foram realizados testes unitários dos métodos printForward() e printBackward();
+
+3.0. Testando método remove():
+3.1 Segundo o teste unitário, o método não remove o primeiro elemento
+
