@@ -23,7 +23,8 @@ public class DoublyLinkedList {
             head = newNode;
         } else {
             Node current = head;
-            while (current.getNext() != null && current.getNext().getData() <= data) {   // Precisamos substituir "current.next.data >= data" por "current.next.data <= data";
+            // Precisamos substituir "current.next.data >= data" por "current.next.data <= data"
+            while (current.getNext() != null && current.getNext().getData() <= data) {
                 current = current.getNext();
             }
 
@@ -57,7 +58,8 @@ public class DoublyLinkedList {
             return output + "\n";
         }
 
-        while (current.getNext() != null) { //precisamos substituir "current != null" por "current.getNext() != null" para impedir que o ultimo nó seja nulo
+        //precisamos substituir "current != null" por "current.getNext() != null" para impedir que current seja nulo, e permitir que o proxímo while seja acessado
+        while (current.getNext() != null) {
             current = current.getNext();
         }
 
@@ -82,9 +84,6 @@ public class DoublyLinkedList {
             current.getPrev().setNext(current.getNext());
         } else {
             head = current.getNext();
-            if (head != null) {
-                head.setPrev(null); // Adicionamos para para limpar o prev do novo header, que deverá ser "esquecido".
-            }
         }
 
         if (current.getNext() != null) {
